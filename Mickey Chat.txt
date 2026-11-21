@@ -1,0 +1,1706 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+
+local LocalPlayer = game.Players.LocalPlayer
+
+repeat
+    task.wait()
+until LocalPlayer:FindFirstChild("PlayerGui")
+
+local DisplayName = LocalPlayer.DisplayName
+
+local function Callback(Value)
+    if Value:find("?") then
+        return Value .. "&auth=mPg61dxsDQIQLRJYOyf4nBIw1UUxjH3Zj0fbzLer"
+    end
+    return Value .. "?auth=mPg61dxsDQIQLRJYOyf4nBIw1UUxjH3Zj0fbzLer"
+end
+
+local Result = ""
+local State = true
+local Item = {}
+
+local function Handler(Data)
+    if not Data then
+        return ""
+    end
+
+    local Entry = Data:gsub("<[^>]*>", "")
+        :gsub("[<>]", "")
+        :gsub("[\204-\205][\128-\191]", "")
+        :gsub("%s+", " ")
+    return Entry:match("^%s*(.-)%s*$") or Entry
+end
+
+local function Action(Input)
+    if Input:find("<[^>]*>") then
+        return true, "HTML tags not allowed"
+    end
+
+    if Input:find("[<>]") then
+        return true, "Angle brackets not allowed"
+    end
+
+    if Input:find("[\204-\205][\128-\191]") then
+        return true, "Zalgo text not allowed"
+    end
+
+    local Ref = Input:gsub("[^%a]", "")
+
+    if #Ref > 0 then
+        if Ref:match("(.)%1{15,}") then
+            return true, "Too many repeated letters"
+        end
+    end
+
+    if #Ref > 10 then
+        local Node = select(2, Ref:gsub("%u", ""))
+        if Node / #Ref > 0.8 and Node > 15 then
+            return true, "Too many capital letters"
+        end
+    end
+
+    return false, Input
+end
+
+local Chunk = {
+rdjrnkdmf = true,
+Jawad_malik201 = true,
+forbiddenisback = true,
+WOLF_ISWILD4 = true,
+bluelockxthedemon = true,
+SABKABAAP1428 = true,
+SVGKABAAP4 = true,
+SVGKABAAP1429 = true,
+BSHAGGAN145 = true,
+Samar_bbb2 = true,
+POOKIExMiDnIgHt_MoOn = true,
+XXLORDXGOKXX = true,
+SOUL_COFOUNDER = true,
+SOHAM201005 = true,
+VAIBHAV_Gokuu = true,
+VENUS_EDIT = true,
+KINGOFCLANS246 = true,
+q1qpro66890 = true,
+alexkabot11 = true,
+NOOBY234442 = true,
+Pokomoko3782 = true,
+WIZARDIDBANNED = true,
+AX3RKABOT = true,
+sulemanop16 = true,
+SABKABAAP1427 = true,
+XxLORDXGOKUxX = true,
+SABKABAAP1430 = true,
+piya10078 = true,
+RENGOKU07662 = true,
+blaire88888 = true,
+terabaap_prince = true,
+XxPriMe_PriNCexX = true,
+forbidkabeta21 = true,
+forbidkabeta = true,
+forbidkabeta12 = true,
+forbidkabeta22 = true,
+forbidkabeta13 = true,
+forbidkabeta20 = true,
+forbidkabeta23 = true,
+forbidkabeta24 = true,
+forbidkabeta19 = true,
+forbidkabeta3 = true,
+forbidkabeta14 = true,
+forbidkabeta18 = true,
+forbidkabeta2 = true,
+forbidkabeta16 = true,
+forbidkabeta15 = true,
+TeRaBaaP_PrinCe = true,
+areskabot = true,
+Gojo_satoru6030 = true,
+}
+
+local function Instance2()
+    return Chunk[LocalPlayer.Name] or false
+end
+
+if Instance2() then
+    return
+end
+
+print("Player Display Name: " .. DisplayName)
+
+local Record = (function(Param)
+    local Holder = {
+    a = "ᴀ",
+    b = "ʙ",
+    c = "ᴄ",
+    d = "ᴅ",
+    e = "ᴇ",
+    f = "ꜰ",
+    g = "ɢ",
+    h = "ʜ",
+    i = "ɪ",
+    j = "ᴊ",
+    k = "ᴋ",
+    l = "ʟ",
+    m = "ᴍ",
+    n = "ɴ",
+    o = "ᴏ",
+    p = "ᴘ",
+    q = "ǫ",
+    r = "ʀ",
+    s = "s",
+    t = "ᴛ",
+    u = "ᴜ",
+    v = "ᴠ",
+    w = "ᴡ",
+    x = "x",
+    y = "ʏ",
+    z = "ᴢ",
+    A = "ᴀ",
+    B = "ʙ",
+    C = "ᴄ",
+    D = "ᴅ",
+    E = "ᴇ",
+    F = "ꜰ",
+    G = "ɢ",
+    H = "ʜ",
+    I = "ɪ",
+    J = "ᴊ",
+    K = "ᴋ",
+    L = "ʟ",
+    M = "ᴍ",
+    N = "ɴ",
+    O = "ᴏ",
+    P = "ᴘ",
+    Q = "ǫ",
+    R = "ʀ",
+    S = "s",
+    T = "ᴛ",
+    U = "ᴜ",
+    V = "ᴠ",
+    W = "ᴡ",
+    X = "x",
+    Y = "ʏ",
+    Z = "ᴢ",
+    }
+
+    local Container = ""
+
+    for i = 1, #Param do
+        local Index = Param:sub(i, i)
+        Container = Container .. (Holder[Index] or Index)
+    end
+
+    return Container
+end)(DisplayName)
+
+local 1RPNam1eTex1t = game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t")
+
+if 1RPNam1eTex1t then
+    1RPNam1eTex1t:FireServer("RolePlayName", "_sʏɴᴛx ᴄʜᴀᴛ_")
+end
+
+local 1RPNam1eColo1r = game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eColo1r")
+
+if 1RPNam1eColo1r then
+    1RPNam1eColo1r:FireServer("PickingRPNameColor", Color3.fromRGB(1, 221, 221))
+end
+
+local 1RPNam1eTex1t2 = game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t")
+
+if 1RPNam1eTex1t2 then
+    1RPNam1eTex1t2:FireServer("RolePlayBio", "  _" .. Index .. "_")
+end
+
+local 1RPNam1eColo1r2 = game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eColo1r")
+
+if 1RPNam1eColo1r2 then
+    1RPNam1eColo1r2:FireServer("PickingRPBioColor", Color3.fromRGB(255, 0, 193))
+end
+
+local Wrapper = {
+rdjrnkdmf = {Tag = "CREATOR", Style = "DIVINE_RING", Color = "RAINBOW"},
+indinarmi = {Tag = "DADDY", Style = "HYDRA_STRIKE", Color = "RAINBOW"},
+Nooyes68 = {Tag = "CREATOR", Style = "BIG_SNIPER", Color = "RAINBOW"},
+Premium_Roger = {Tag = "MOD", Style = "DEMON_HANDS", Color = "RAINBOW"},
+huhuhuhuhuhu_431 = {Tag = "PAPA", Style = "LETTER_A", Color = "RAINBOW"},
+iamshivanshboi16 = {Tag = "ADMIN", Style = "LETTER_A", Color = Color3.fromRGB(0, 255, 255)},
+Luca_xx18 = {Tag = "GOD", Style = "LETTER_N", Color = "RAINBOW"},
+DE4DLYxf0under_JAMAL = {Tag = "STAR", Style = "ILLUMINATI", Color = "RAINBOW"},
+itzme_AD7 = {Tag = "FATHER", Color = "RAINBOW"},
+ALONE_WX5 = {Tag = "ARCHON", Style = "NORMAL_HALO", Color = "RAINBOW"},
+X4H_DAD = {Tag = "MAFIA", Color = Color3.fromRGB(0, 255, 254)},
+cute_boy93492 = {Tag = "ADMIN", Color = Color3.fromRGB(255, 0, 0)},
+satyam4482 = {Tag = "SEXY", Color = Color3.fromRGB(0, 0, 204)},
+jiyanshok = {Tag = "BATMAN", Style = "DEMON_HANDS", Color = Color3.fromRGB(0, 0, 0)},
+darkfuxks = {Tag = "COMGOD", Style = "DEMON_HANDS", Color = "RAINBOW"},
+harshu_7595 = {Tag = "STEPDADDY", Color = "RAINBOW"},
+damien_yt62 = {Tag = "KING", Style = "LETTER_A", Color = "RAINBOW"},
+prayansh108 = {Tag = "KHATRI", Color = Color3.fromRGB(245, 0, 0)},
+Garammasalahun = {Tag = "LEGEND", Style = "ANGEL_WINGS", Color = Color3.fromRGB(255, 0, 0)},
+Rudrapawar123456 = {Tag = "OG", Color = Color3.fromRGB(173, 31, 31)},
+VEERUBHAI001 = {Tag = "OWNER", Style = "BIG_SNIPER", Color = "RAINBOW"},
+WilDFloweRs0_0 = {Tag = "BADNAM", Style = "HYDRA_STRIKE", Color = "RAINBOW"},
+op_2333334 = {Tag = "CUTIE", Style = "HEART_AURA", Color = Color3.fromRGB(255, 182, 193)},
+princess_manya4 = {Tag = "POOKIE", Style = "HEART_AURA", Color = Color3.fromRGB(255, 182, 193)},
+rdjrnkdmf = {Tag = "MALKIN", Style = "HEART_AURA", Color = "RAINBOW"},
+Chiraglife4 = {Tag = "GRANDFATHER", Color = Color3.fromRGB(20, 52, 164)},
+}
+
+local Buffer = game.JobId ~= "" and game.JobId or "StudioSession"
+local Cache = ("https://revivemickey-default-rtdb.asia-southeast1.firebasedatabase.app/")
+    :gsub(".json", "") .. "AuraSync.json"
+local Element = ("https://revivemickey-default-rtdb.asia-southeast1.firebasedatabase.app/")
+    :sub(-1) == "/"
+local Element2 = Callback(Element and "https://revivemickey-default-rtdb.asia-southeast1.firebasedatabase.app/")
+local Element3 = Callback(Cache)
+local Element4 = 0
+
+local Element5 = {
+CREATOR = true,
+KING = true,
+MOD = true,
+DADDY = true,
+ARCHON = true,
+STEPDADDY = true,
+STAR = true,
+MALKIN = true,
+}
+
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
+local TextChatService = game:GetService("TextChatService")
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local Element6 = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or request
+local Element7 = os.time()
+local func12
+local func13
+local func16
+local func17
+local func14
+local func15
+local func19
+local func18
+local func20
+local func21
+local PlayerGui = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
+PlayerGui.Name = "CloudChatMickeyFixed"
+PlayerGui.ResetOnSpawn = false
+local textButton = Instance.new("TextButton", PlayerGui)
+textButton.Size = UDim2.new(0, 40, 0, 100)
+textButton.Position = UDim2.new(0, 5, 0.5,-50)
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.BackgroundTransparency = 0.4
+textButton.TextColor3 = Color3.new(1, 1, 1)
+textButton.Text = "C\nH\nA\nT"
+textButton.Font = Enum.Font.BuilderSansBold
+textButton.TextSize = 14
+Instance.new("UICorner", textButton)
+Instance.new("UIStroke", textButton).Color = Color3.new(1, 1, 1)
+local frame = Instance.new("Frame", PlayerGui)
+frame.Size = UDim2.new(0, 350, 0, 250)
+frame.Position = UDim2.new(0.5,-175, 0.5,-125)
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+frame.BackgroundTransparency = 0.4
+frame.Active = true
+Instance.new("UICorner", frame)
+
+textButton.MouseButton1Click:Connect(function()
+    frame.Visible = not frame.Visible
+end)
+
+local Instance3 = Wrapper[LocalPlayer.Name] or Wrapper[LocalPlayer.DisplayName]
+
+if Instance3 then
+    local Element8 = Instance.new("TextButton", PlayerGui)
+    Element8.Size = UDim2.new(0, 40, 0, 100)
+    Element8.Position = UDim2.new(0, 50, 0.5,-50)
+    Element8.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Element8.BackgroundTransparency = 0.4
+    Element8.TextColor3 = Color3.fromRGB(0, 255, 150)
+    Element8.Text = "A\nU\nR\nA"
+    Element8.Font = Enum.Font.BuilderSansBold
+    Element8.TextSize = 14
+    Instance.new("UICorner", Element8)
+    Instance.new("UIStroke", Element8).Color = Color3.new(1, 1, 1)
+
+    Element8.MouseButton1Click:Connect(function()
+        State = not State
+        Element8.TextColor3 = State and Color3.fromRGB(0, 255, 150) or Color3.fromRGB(255, 50, 50)
+    end)
+
+    if Instance3 and Element5[Instance3.Tag] then
+        local Element9 = Instance.new("TextButton", PlayerGui)
+        Element9.Size = UDim2.new(0, 40, 0, 100)
+        Element9.Position = UDim2.new(0, 95, 0.5,-50)
+        Element9.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        Element9.BackgroundTransparency = 0.4
+        Element9.TextColor3 = Color3.fromRGB(255, 215, 0)
+        Element9.Text = "S\nT\nY\nL\nE"
+        Element9.Font = Enum.Font.BuilderSansBold
+        Element9.TextSize = 14
+        Instance.new("UICorner", Element9)
+        Instance.new("UIStroke", Element9).Color = Color3.new(1, 1, 1)
+        local scrollingFrame = Instance.new("ScrollingFrame", PlayerGui)
+        scrollingFrame.Size = UDim2.new(0, 180, 0, 220)
+        scrollingFrame.Position = UDim2.new(0, 140, 0.5,-110)
+        scrollingFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        scrollingFrame.BackgroundTransparency = 0.2
+        scrollingFrame.Visible = false
+        scrollingFrame.ScrollBarThickness = 1
+        scrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 215, 0)
+        scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+        scrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+        Instance.new("UICorner", scrollingFrame).CornerRadius = UDim.new(0, 8)
+        Instance.new("UIStroke", scrollingFrame).Color = Color3.fromRGB(255, 255, 255)
+        local IListLayout = Instance.new("UIListLayout", scrollingFrame)
+        IListLayout.Padding = UDim.new(0, 5)
+        IListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        Instance.new("UIPadding", scrollingFrame).PaddingTop = UDim.new(0, 10)
+
+        Element9.MouseButton1Click:Connect(function()
+            scrollingFrame.Visible = not scrollingFrame.Visible
+        end)
+
+        local function Routine(Source, Target, Info)
+            local textButton2 = Instance.new("TextButton", scrollingFrame)
+            textButton2.Size = UDim2.new(0.9, 0, 0, 35)
+            textButton2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+            textButton2.TextColor3 = Color3.new(1, 1, 1)
+            textButton2.Text = Source
+            textButton2.Font = Enum.Font.LuckiestGuy
+            Instance.new("UICorner", textButton2).CornerRadius = UDim.new(0, 4)
+
+            textButton2.MouseButton1Click:Connect(function()
+                scrollingFrame.Visible = false
+                local Character = LocalPlayer.Character
+
+                if Character and Character:FindFirstChild("HumanoidRootPart") then
+                    pcall(function()
+                        Element6({
+                        Url = Callback(Element3:gsub(".json")),
+                        Method = "PUT",
+                        Body = HttpService:JSONEncode({Style = Info}),
+                        })
+                    end)
+
+                    if Character:FindFirstChild("MickeyAura") then
+                        Character.MickeyAura:Destroy()
+                    end
+
+                    local model = Instance.new("Model", Character)
+                    model.Name = "SyntxAura"
+                    Target(LocalPlayer, Character.HumanoidRootPart, model)
+                    State = true
+
+                    if Element8 then
+                        Element8.TextColor3 = Color3.fromRGB(0, 255, 150)
+                    end
+                end
+            end)
+        end
+
+        task.delay(1, function()
+            Routine("Divine Ring")
+            Routine("Hydra Strike")
+            Routine("Void Wings", func17, "DEMON_HANDS")
+            Routine("Angel Wings")
+            Routine("Pyaari Heart", func16, "HEART_AURA")
+            Routine("Letter A")
+            Routine("Bubble", func15, "LETTER_N")
+            Routine("Halo")
+            Routine("Big Sniper")
+            Routine("Illuminati")
+        end)
+    end
+end
+
+local Element10
+local Position
+local Position2
+
+frame.InputBegan:Connect(function(Input2)
+    if Input2.UserInputType == Enum.UserInputType.MouseButton1 or Input2.UserInputType == Enum.UserInputType.Touch then
+        Element10 = true
+        Position = Input2.Position
+        Position2 = frame.Position
+
+        Input2.Changed:Connect(function()
+            if Input2.UserInputState == Enum.UserInputState.End then
+                Element10 = false
+            end
+        end)
+
+        Container = ""
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(Input3)
+    if Element10 and (Input3.UserInputType == Enum.UserInputType.MouseMovement or Input3.UserInputType == Enum.UserInputType.Touch) then
+        local Part = Input3.Position -Position
+        frame.Position = UDim2.new(Position2.X.Scale, Position2.X.Offset + Part.X, Position2.Y.Scale, Position2.Y.Offset + Part.Y)
+    end
+end)
+
+local frame1 = Instance.new("Frame", PlayerGui)
+frame1.Size = UDim2.new(0, 240, 0, 400)
+frame1.Position = UDim2.new(0, 5, 0.5, 55)
+frame1.BackgroundTransparency = 1
+Instance.new("UIListLayout", frame1).Padding = UDim.new(0, 8)
+
+local function Worker(Payload, Context, Sender)
+    if Instance2() then
+        return
+    end
+
+    local Element11 = Handler(Context)
+    local Frame = Instance.new("Frame")
+    Frame.Size = UDim2.new(1, 0, 0, 65)
+    Frame.BackgroundTransparency = 1
+    local Frame2 = Instance.new("Frame")
+    Frame2.Size = UDim2.new(1, 0, 1, 0)
+    Frame2.Position = UDim2.new(-1.2, 0, 0, 0)
+    Frame2.BackgroundColor3 = Color3.new(0, 0, 0)
+    Frame2.BackgroundTransparency = 0.4
+    Instance.new("UICorner", Frame2).CornerRadius = UDim.new(0, 32)
+    local imageLabel = Instance.new("ImageLabel", Frame2)
+    imageLabel.Size = UDim2.new(0, 46, 0, 46)
+    imageLabel.Position = UDim2.new(0, 10, 0.5,-23)
+    imageLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    imageLabel.BackgroundTransparency = 0.3
+    imageLabel.Image = "rbxassetid://15263152670"
+    Instance.new("UICorner", imageLabel).CornerRadius = UDim.new(1, 0)
+
+    task.spawn(function()
+        pcall(function()
+            local UserIdFromNameAsync = Players:GetUserIdFromNameAsync(Sender)
+            local Element12, Element13 = Players:GetUserThumbnailAsync(UserIdFromNameAsync, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size48x48)
+
+            if Element13 then
+                imageLabel.Image = Element12
+            end
+        end)
+    end)
+
+    local textLabel = Instance.new("TextLabel", Frame2)
+    textLabel.Size = UDim2.new(1,-65, 0, 20)
+    textLabel.Position = UDim2.new(0, 60, 0, 10)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = Payload
+    textLabel.TextColor3 = Color3.fromRGB(255, 170, 0)
+    textLabel.Font = Enum.Font.BuilderSansBold
+    textLabel.TextXAlignment = "Left"
+    textLabel.TextSize = 18
+    local Element14 = Instance.new("TextLabel", Frame2)
+    Element14.Size = UDim2.new(1,-65, 0, 20)
+    Element14.Position = UDim2.new(0, 60, 0, 32)
+    Element14.BackgroundTransparency = 1
+    Element14.Text = Element12
+    Element14.TextColor3 = Color3.new(1, 1, 1)
+    Element14.Font = Enum.Font.BuilderSansMedium
+    Element14.TextXAlignment = "Left"
+    Element14.TextSize = 18
+    Element14.ClipsDescendants = true
+
+    TweenService:Create(
+    Frame2,
+    TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out),
+    {Position = UDim2.new(0, 0, 0, 0)}
+    ):Play()
+
+    task.delay(5, function()
+        local tweenInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+        TweenService:Create(Frame2, tweenInfo, {BackgroundTransparency = 1}):Play()
+        TweenService:Create(imageLabel, tweenInfo, {ImageTransparency = 1, BackgroundTransparency = 1})
+            :Play()
+        TweenService:Create(textLabel, tweenInfo, {TextTransparency = 1}):Play()
+        local Tween = TweenService:Create(Element14, tweenInfo, {TextTransparency = 1})
+        Tween:Play()
+
+        Tween.Completed:Connect(function()
+            Frame:Destroy()
+        end)
+    end)
+end
+
+local Element15 = Instance.new("ScrollingFrame", Frame)
+Element15.Size = UDim2.new(1,-10, 1,-60)
+Element15.Position = UDim2.new(0, 5, 0, 5)
+Element15.BackgroundTransparency = 1
+Element15.ScrollBarThickness = 0
+Element15.ScrollBarImageColor3 = Color3.fromRGB(255, 215, 0)
+Element15.CanvasSize = UDim2.new(0, 0, 0, 0)
+Element15.AutomaticCanvasSize = Enum.AutomaticSize.Y
+Instance.new("UIListLayout", Element15).Padding = UDim.new(0, 2)
+local Frame3 = Instance.new("Frame")
+Frame3.Size = UDim2.new(1,-10, 0, 36)
+Frame3.Position = UDim2.new(0, 5, 1,-41)
+Frame3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame3.BackgroundTransparency = 0.2
+Instance.new("UICorner", Frame3)
+local textBox = Instance.new("TextBox", Frame3)
+textBox.Size = UDim2.new(1,-45, 1, 0)
+textBox.Position = UDim2.new(0, 8, 0, 0)
+textBox.BackgroundTransparency = 1
+textBox.TextColor3 = Color3.new(1, 1, 1)
+textBox.PlaceholderText = "Click Here To Chat..."
+textBox.Text = ""
+textBox.Font = Enum.Font.BuilderSansMedium
+textBox.TextSize = 16
+textBox.TextXAlignment = Enum.TextXAlignment.Left
+local Element16 = Instance.new("TextButton", Frame3)
+Element16.Size = UDim2.new(0, 24, 0, 24)
+Element16.Position = UDim2.new(1,-30, 0.5,-12)
+Element16.BackgroundTransparency = 1
+Element16.Text = "✖"
+Element16.TextColor3 = Color3.fromRGB(200, 200, 200)
+Element16.Font = Enum.Font.BuilderSansBold
+Element16.TextSize = 22
+Element16.Visible = false
+
+Element16.MouseButton1Click:Connect(function()
+    Container = ""
+end)
+
+task.spawn(function()
+    while true do
+        if Container ~= ""
+        textBox.PlaceholderText = "PRVT TO " .. Container .. "..."
+        Element16.Visible = true
+    else
+        textBox.PlaceholderText = "Click Here To Chat..."
+        Element16.Visible = false
+    end
+    task.wait(0.2)
+end
+
+end)
+
+local Element17 = {}
+
+local Element18 = {
+Color3.fromRGB(253, 41, 67),
+Color3.fromRGB(1, 162, 255),
+Color3.fromRGB(2, 184, 87),
+Color3.fromRGB(170, 85, 255),
+Color3.fromRGB(255, 170, 0),
+}
+
+local function Runner(Receiver)
+    local Element19 = 0
+
+    for i = 1, #Receiver do
+        Element19 = Element19 + Receiver:byte(i)
+    end
+
+    return Element18[Element19 % #Element18 + 1]
+end
+
+RunService.Heartbeat:Connect(function()
+    local StartTime = Color3.fromHSV(tick() % 3 / 3, 0.8, 1)
+    for k, Step in pairs(Element17) do
+        if k:IsDescendantOf(game) then
+            local Label = Handler(Step.content)
+            k.Text = string.format(
+            '%s<font color="#%s">[%s]</font> <font color="#%s">[%s]</font>: <font face="BuilderSansMedium">%s</font>',
+            Step.pmTag,
+            StartTime:ToHex(),
+            Step.tag,
+            Step.nameColor:ToHex(),
+            Step.name,
+            Label
+            )
+        end
+    end
+end)
+
+local function Executor(Content, Args, Request, Request2, Request3)
+    if not Request2 and Chunk[Request] then
+        return
+    end
+
+    if Request3 and Request3 ~= "" and Request3 ~= LocalPlayer.DisplayName and Content ~= LocalPlayer.DisplayName then
+        return
+    end
+
+    local Element20 = Handler(Args)
+    local textButton3 = Instance.new("TextButton", Element15)
+    textButton3.Text = ""
+    textButton3.Size = UDim2.new(1, 0, 0, 0)
+    textButton3.AutomaticSize = Enum.AutomaticSize.Y
+    textButton3.BackgroundTransparency = 1
+    textButton3.RichText = true
+    textButton3.TextSize = 16
+    textButton3.TextColor3 = Color3.new(1, 1, 1)
+    textButton3.TextXAlignment = Enum.TextXAlignment.Left
+    textButton3.TextWrapped = true
+    textButton3:SetAttribute("RealName", Request)
+
+    if Request2 then
+        textButton3.Font = Enum.Font.BuilderSansItalic
+        textButton3.TextColor3 = Color3.fromRGB(200, 200, 200)
+        textButton3.Text = Element20
+    else
+        local Element21 = Runner(Content)
+        local Element22 = Wrapper[Request]
+        textButton3.Font = Enum.Font.BuilderSansBold
+
+        if Request3 and Request3 ~= ""
+        local Element23 = Content == LocalPlayer.DisplayName and '<font color="#ff00ff">[TO: ' .. Request3 .. "]</font> " or '<font color="#ff00ff">[FROM: ' .. Content .. "]</font> "
+        textButton3.Text = string.format(
+        '%s<font color="#%s">[%s]</font>: <font face="BuilderSansMedium">%s</font>',
+        Element23,
+        Element21:ToHex(),
+        Content,
+        Element20
+        )
+    elseif Element22 and Element22.Color == "RAINBOW"
+        Element17[textButton3] = {pmTag = "",
+            tag = Element22.Tag,
+            name = Content,
+            nameColor = Element21,
+            content = Element20}
+    else
+        local Element24 = Element22 and string.format('<font color="#%s">[%s]</font> ', Element22.Color:ToHex(), Element22.Tag)
+        textButton3.Text = string.format(
+        '%s%s<font color="#%s">[%s]</font>: <font face="BuilderSansMedium">%s</font>',
+        "",
+        Element24 or "",
+        Element21:ToHex(),
+        Content,
+        Element20
+        )
+    end
+
+    textButton3.MouseButton1Click:Connect(function()
+        Container = Content
+        textBox:CaptureFocus()
+    end)
+end
+
+textButton3.Parent = Element15
+Element15.CanvasPosition = Vector2.new(0, 99999)
+end
+
+local function Instance4()
+    if Chunk[LocalPlayer.Name] then
+        textBox.Text = ""
+        return
+    end
+
+    local Text = textBox.Text
+
+    if Text == ""
+    return
+end
+
+local Element25, Element26 = Action(Text)
+
+if Element25 then
+    Executor("SYSTEM")
+    textBox.Text = ""
+    return
+end
+
+local Element27 = Handler(Text)
+
+if Element27 == "" or Element27:match("^%s*$") then
+    Executor("SYSTEM")
+    textBox.Text = ""
+    return
+end
+
+local StartTime2 = os.clock()
+
+if StartTime2 -Element19 < 2 then
+    textBox.Text = ""
+    return
+end
+
+if #Element27 > 200 then
+    Executor("SYSTEM", "📏 Message too long (max 200 chars)", "System", true, "")
+    textBox.Text = ""
+    return
+end
+
+Element19 = StartTime2
+textBox.Text = ""
+Executor(LocalPlayer.DisplayName, Element27, LocalPlayer.Name, false, Container)
+
+task.spawn(function()
+    if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Head") then
+        TextChatService:DisplayBubble(LocalPlayer.Character.Head, Element27)
+    end
+end)
+
+pcall(function()
+    local Element28 = {["Content-Type"] = "application/json"}
+
+    local Player = {
+    sender = LocalPlayer.DisplayName,
+    content = Element27,
+    realName = LocalPlayer.Name,
+    target = Container,
+    timestamp = os.time(),
+    }
+
+    Element6({Url = Element24, Method = "POST", Headers = Element28, Body = HttpService:JSONEncode(Player)})
+end)
+
+end
+
+local Element29 = {}
+
+local function Processor()
+    pcall(function()
+        local Element30 = Element6({Url = Element3, Method = "GET"})
+        if Element30 and Element30.Body and Element30.Body ~= "null"
+        local Element31 = HttpService:JSONDecode(Element30.Body)
+        for k, Count in pairs(Element31 or {}) do
+            if Element28[k] ~= Count.Style then
+                Element28[k] = Count.Style
+                local Instance5 = Players:FindFirstChild(k)
+
+                if Instance5 and Instance5.Character then
+                    local HumanoidRootPart = Instance5.Character:FindFirstChild("HumanoidRootPart")
+                    if HumanoidRootPart then
+                        if Instance5.Character:FindFirstChild("MickeyAura") then
+                            Instance5.Character.MickeyAura:Destroy()
+                        end
+
+                        local Character2 = Instance.new("Model", Instance5.Character)
+                        Character2.Name = "MickeyAura"
+
+                        if Count.Style == "DIVINE_RING"
+                        func12(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "HYDRA_STRIKE"
+                        func13(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "DEMON_HANDS"
+                        func17(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "HEART_AURA"
+                        func16(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "LETTER_A"
+                        func14(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "LETTER_N"
+                        func15(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "NORMAL_HALO"
+                        func19(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "ANGEL_WINGS"
+                        func18(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "BIG_SNIPER"
+                        func20(Instance5, HumanoidRootPart, Character2)
+                    elseif Count.Style == "ILLUMINATI"
+                        func21(Instance5, HumanoidRootPart, Character2)
+                    end
+                end
+            end
+        end
+    end
+end
+
+end)
+
+local Ok, result = pcall(function()
+    return Element6({Url = Element24 .. '&orderBy="$key"&limitToLast=10', Method = "GET"})
+end)
+
+if Ok and result and result.Body and result.Body ~= "null"
+local Ok2, result1 = pcall(function()
+    return HttpService:JSONDecode(result.Body)
+end)
+
+if Ok2 and type(result1) == "table"
+for k, Iter in pairs(result1) do
+    if not Element29[k] and (Iter.timestamp and Iter.timestamp >= Element7) then
+        local Instance6 = Players:FindFirstChild(Iter.realName)
+
+        if Instance6 and Instance6.DisplayName ~= Iter.sender then
+            local Player2 = "😂 YE FAKE TAG RNDY " .. Instance6.DisplayName .. " → " .. Iter.sender
+
+            pcall(function()
+                local Element32 = {["Content-Type"] = "application/json"}
+                local Element33 = {sender = "BOT",
+                    content = Player2,
+                    realName = "ChatBot",
+                    target = "",
+                    timestamp = os.time()}
+                Element6({Url = Element24, Method = "POST", Headers = Element32, Body = HttpService:JSONEncode(Element33)})
+            end)
+
+            Iter.sender = Instance6.DisplayName
+        end
+
+        Element29[k] = true
+
+        if Iter.realName ~= LocalPlayer.Name and not Element33[Iter.realName] then
+            Executor(Iter.sender or "Unknown", Iter.content or "", Iter.realName or "", false, Iter.target)
+            if not Iter.target or Iter.target == "" or Iter.target == LocalPlayer.DisplayName then
+                Worker(Iter.sender or "Unknown", Iter.content or "", Iter.realName or "")
+                task.spawn(function()
+                    local Instance7 = Players:FindFirstChild(Iter.realName or "")
+                    if Instance7 and Instance7.Character and Instance7.Character:FindFirstChild("Head") then
+                        TextChatService:DisplayBubble(Instance7.Character.Head, Iter.content)
+                    end
+                end)
+            end
+        end
+    end
+end
+
+end
+
+end
+
+end
+
+local function func10()
+    pcall(function()
+        Element6({Url = Element24, Method = "DELETE"})
+    end)
+end
+
+textBox.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        Instance4()
+    end
+end)
+
+task.spawn(function()
+    while true do
+        Processor()
+        task.wait(1.5)
+    end
+end)
+
+task.spawn(function()
+    while true do
+        func10()
+        task.wait(3600)
+    end
+end)
+
+task.spawn(function()
+    local Element34 = DisplayName .. " Joined The Chat"
+    pcall(function()
+        local Element35 = {["Content-Type"] = "application/json"}
+        local Element36 = {sender = "BOT",
+            content = Element34,
+            realName = "ChatBot",
+            target = "",
+            timestamp = os.time() -1}
+        Element6({Url = Element24, Method = "POST", Headers = Element35, Body = HttpService:JSONEncode(Element36)})
+    end)
+end)
+
+local function Part2(Part3)
+    Part3.CanCollide = false
+    Part3.CanTouch = false
+    Part3.CanQuery = false
+    Part3.Massless = true
+    Part3.Anchored = false
+end
+
+function func12(Request4, Instance8, Request5)
+    local color3 = Color3.new(1, 1, 1)
+    local Instance9 = Instance.new("Part", Request5)
+    Instance9.Shape = "Ball"
+    Instance9.Size = Vector3.new(2.4, 2.4, 2.4)
+    Instance9.Material = "Neon"
+    Instance9.Color = color3
+    Part2(Instance9)
+    local Instance10 = Instance.new("Part", Request5)
+    Instance10.Shape = "Ball"
+    Instance10.Size = Vector3.new(1.6, 1.6, 1.6)
+    Instance10.Material = "Neon"
+    Instance10.Color = color3
+    Part2(Instance10)
+    local Instance11 = Instance.new("Part", Request5)
+    Instance11.Shape = "Ball"
+    Instance11.Size = Vector3.new(1.6, 1.6, 1.6)
+    Instance11.Material = "Neon"
+    Instance11.Color = color3
+    Part2(Instance11)
+    local Element37 = Instance.new("Motor6D", Instance9)
+    Element37.Part0 = Instance8
+    Element37.Part1 = Instance9
+    local Element38 = Instance.new("Weld", Instance10)
+    Element38.Part0 = Instance9
+    Element38.Part1 = Instance10
+    Element38.C0 = CFrame.new(-1.1, 1.2, 0)
+    local Element39 = Instance.new("Weld", Instance11)
+    Element39.Part0 = Instance9
+    Element39.Part1 = Instance11
+    Element39.C0 = CFrame.new(1.1, 1.2, 0)
+
+    task.spawn(function()
+        while Request5 and Request5.Parent do
+            if Request4 == LocalPlayer and not State then
+                Instance9.Transparency = 1
+                Instance10.Transparency = 1
+                Instance11.Transparency = 1
+
+                repeat
+                    RunService.Heartbeat:Wait()
+                until State or not Request5.Parent
+            end
+
+            local StartTime3 = tick()
+            local Element40 = math.sin(StartTime3 * 2) * 0.4
+            Element37.C0 = CFrame.new(-1.5, 4.5 + Element40, 0.5)
+
+            if Instance9.Transparency ~= 0 then
+                Instance9.Transparency = 0
+                Instance10.Transparency = 0
+                Instance11.Transparency = 0
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func13(Request6, Instance12, Request7)
+    local Instance13 = Instance.new("Part", Request7)
+    Instance13.Name = "HydraCore"
+    Instance13.Shape = "Ball"
+    Instance13.Size = Vector3.new(8, 8, 8)
+    Instance13.Material = "Neon"
+    Instance13.Color = Color3.new(0, 0, 0)
+    Part2(Instance13)
+    local Element41 = Instance.new("Motor6D", Instance13)
+    Element41.Part0 = Instance12
+    Element41.Part1 = Instance13
+    local Element42 = {}
+
+    for i = 1, 12 do
+        local wedgePart = Instance.new("WedgePart", Request7)
+        wedgePart.Size = Vector3.new(0.2, 2.5, 2.5)
+        wedgePart.Color = Color3.new(1, 1, 1)
+        wedgePart.Material = "Neon"
+        Part2(wedgePart)
+        local Pos = Instance.new("Motor6D", wedgePart)
+        Pos.Part0 = Instance12
+        Pos.Part1 = wedgePart
+        table.insert(Element42, {motor = Pos, Instance13 = wedgePart, offset = math.pi * 2 / 12 * i})
+    end
+
+    task.spawn(function()
+        while Request7 and Request7.Parent do
+            if Request6 == LocalPlayer and not State then
+                Instance13.Transparency = 1
+
+                for Num, Cursor in pairs(Element42) do
+                    Cursor.Instance13.Transparency = 1
+                end
+
+                repeat
+                    RunService.Heartbeat:Wait()
+                until State or not Request7.Parent
+            end
+
+            local StartTime4 = tick()
+            Element41.C0 = CFrame.new(0, 5 + math.sin(StartTime4 * 3) * 2, 8 + math.cos(StartTime4 * 3) * 1) * CFrame.Angles(0, math.rad(StartTime4 * 150), 0)
+
+            for i = 1, #Element42 do
+                local Offset = Element42[i]
+                local Offset2 = math.cos(StartTime4 * 2.5 + Offset.offset) * 6
+                local Offset3 = math.sin(StartTime4 * 2.5 + Offset.offset) * 6 + math.sin(StartTime4 * 3) * 2
+                Offset.motor.C0 = CFrame.new(Offset2, Offset3 + 5, 8) * CFrame.lookAt(Vector3.new(Offset2, Offset3 + 5, 8), Vector3.new(0, 5, 8)).Rotation * CFrame.Angles(0, 1.57, 0)
+
+                if Offset.Instance13.Transparency ~= 0 then
+                    Offset.Instance13.Transparency = 0
+                end
+            end
+
+            if Instance13.Transparency ~= 0 then
+                Instance13.Transparency = 0
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func14(Request8, Instance14, Request9)
+    local color32 = Color3.new(1, 1, 1)
+    local Element43 = {}
+
+    local function Callback(Count2, Request10, Request11)
+        local Instance15 = Instance.new("Part", Request9)
+        Instance15.Size = Count2
+        Instance15.Color = color32
+        Instance15.Material = "Neon"
+        Instance15.Transparency = 0.1
+        Part2(Instance15)
+        local Element44 = Instance.new("Weld", Instance15)
+        Element44.Part0 = Instance14
+        Element44.Part1 = Instance15
+        Element44.C0 = CFrame.new(1.8, 3.5, 0.5) * Request10 * Request11
+        table.insert(Element43, Instance15)
+        return Instance15
+    end
+
+    Callback(Vector3.new(0.08, 0.8, 0.08), CFrame.new(-0.25, 0, 0), CFrame.Angles(0, 0, math.rad(20)))
+    Callback(Vector3.new(0.08, 0.8, 0.08), CFrame.new(0.25, 0, 0), CFrame.Angles(0, 0, math.rad(-20)))
+    Callback(Vector3.new(0.4, 0.08, 0.08), CFrame.new(0, 0.2, 0), CFrame.Angles(0, 0, 0))
+    local Instance16 = Instance.new("Part", Request9)
+    Instance16.Size = Vector3.new(0.15, 0.15, 0.15)
+    Instance16.Shape = "Ball"
+    Instance16.Color = color32
+    Instance16.Material = "Neon"
+    Instance16.Transparency = 0.05
+    Part2(Instance16)
+    local Element45 = Instance.new("Weld", Instance16)
+    Element45.Part0 = Instance14
+    Element45.Part1 = Instance16
+    Element45.C0 = CFrame.new(1.8, 3.7, 0.5)
+    table.insert(Element43, Instance16)
+
+    task.spawn(function()
+        while Request9 and Request9.Parent do
+            if Request8 == LocalPlayer and not State then
+                for Offset4, Part4 in pairs(Element43) do
+                    Part4.Transparency = 1
+                end
+                repeat
+                    RunService.Heartbeat:Wait()
+                until State or not Request9.Parent
+            end
+
+            if Element43[1].Transparency ~= 0.1 then
+                for Offset5, Part5 in pairs(Element43) do
+                    Part5.Transparency = 0.1
+                end
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func15(Request12, Instance17, Request13)
+    local Element46 = {
+    Color3.fromRGB(173, 216, 230),
+    Color3.fromRGB(255, 182, 193),
+    Color3.fromRGB(144, 238, 144),
+    Color3.fromRGB(255, 255, 224),
+    Color3.fromRGB(216, 191, 216),
+    }
+
+    local Element47 = {}
+
+    for Offset6 = 1, 10 do
+        local Random2 = 0.6 + math.random() * 0.6
+        local Instance18 = Instance.new("Part", Request13)
+        Instance18.Shape = Enum.PartType.Ball
+        Instance18.Size = Vector3.new(Random2, Random2, Random2)
+        Instance18.Material = Enum.Material.Neon
+        Instance18.Color = Element46[math.random(1, #Element46)]
+        Instance18.Transparency = 0.4
+        Part2(Instance18)
+        local Offset7 = Instance.new("Motor6D", Instance18)
+        Offset7.Part0 = Instance17
+        Offset7.Part1 = Instance18
+
+        table.insert(Element47, {
+        Instance18 = Instance18,
+        Element45 = Offset7,
+        phase = math.random() * 2 * math.pi,
+        radius = 2 + math.random() * 1,
+        speed = 0.5 + math.random() * 0.2,
+        baseSize = Random2,
+        })
+    end
+
+    task.spawn(function()
+        while Request13 and Request13.Parent do
+            if Request12 == LocalPlayer and not State then
+                for Offset8, Offset9 in pairs(Element47) do
+                    Offset9.Instance18.Transparency = 1
+                end
+
+                repeat
+                    RunService.Heartbeat:Wait()
+                until State or not Request13.Parent
+
+                for Offset10, Offset11 in pairs(Element47) do
+                    Offset11.Instance18.Transparency = 0.4
+                end
+            end
+
+            local StartTime5 = tick()
+
+            for Offset12, Offset13 in pairs(Element47) do
+                local Offset14 = StartTime5 * Offset13.speed + Offset13.phase
+                local Offset15 = math.sin(Offset14) * Offset13.radius
+                local Offset16 = math.cos(Offset14) * (Offset13.radius * 0.5) + 2
+                local Offset17 = math.cos(Offset14 * 0.8) * Offset13.radius
+                Offset13.Element45.C0 = CFrame.new(Offset15, Offset16, Offset17)
+                local Offset18 = 0.95 + 0.05 * math.sin(StartTime5 * 2 + Offset13.phase)
+                Offset13.Instance18.Size = Vector3.new(Offset13.baseSize * Offset18, Offset13.baseSize * Offset18, Offset13.baseSize * Offset18)
+
+                if Offset13.Instance18.Transparency ~= 0.4 then
+                    Offset13.Instance18.Transparency = 0.4
+                end
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func16(Request14, Instance19, Request15)
+    local Element48 = {}
+
+    for i = 1, 40 do
+        local Instance20 = Instance.new("Part", Request15)
+        Instance20.Size = Vector3.new(0.4, 0.4, 0.4)
+        Instance20.Color = Color3.fromRGB(255, 105, 180)
+        Instance20.Material = Enum.Material.Neon
+        Part2(Instance20)
+        local Offset19 = Instance.new("Motor6D", Instance20)
+        Offset19.Part0 = Instance19
+        Offset19.Part1 = Instance20
+        table.insert(Element48, {motor = Offset19, Instance20 = Instance20, t_offset = i / 40 * (math.pi * 2)})
+    end
+
+    task.spawn(function()
+        while Request15 and Request15.Parent do
+            if Request14 == LocalPlayer and not State then
+                for Offset20, Offset21 in pairs(Element48) do
+                    Offset21.Instance20.Transparency = 1
+                end
+                repeat
+                    RunService.Heartbeat:Wait()
+                until State or not Request15.Parent
+            end
+
+            for Offset22, Offset23 in pairs(Element48) do
+                local Offset24 = 16 * math.sin(Offset23.t_offset) ^ 3
+                local Offset25 = 13 * math.cos(Offset23.t_offset) -5 * math.cos(2 * Offset23.t_offset) -2 * math.cos(3 * Offset23.t_offset) -math.cos(4 * Offset23.t_offset)
+                Offset23.motor.C0 = CFrame.new(Offset24 * 0.12, Offset25 * 0.12 + 1, 1.5) * CFrame.Angles(0, 0, math.pi)
+                Offset23.Instance20.Transparency = 0
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func17(Request16, Instance21, Request17)
+    local Element49 = Color3.fromRGB(0, 0, 0)
+
+    local function Callback(Request18)
+        local Element50 = Request18 and-1 or 1
+        local Instance22 = Instance.new("Part", Request17)
+        Instance22.Size = Vector3.new(2, 2, 2)
+        Instance22.Color = Element49
+        Instance22.Material = Enum.Material.Basalt
+        Part2(Instance22)
+        local Element51 = Instance.new("Motor6D", Instance22)
+        Element51.Part0 = Instance21
+        Element51.Part1 = Instance22
+        local Element52 = {}
+
+        local function Callback(Request19, Request20, Request21)
+            local partRef = Instance22
+            for k, Offset26 in pairs({1, 1.5, 1.2}) do
+                local Instance23 = Instance.new("Part", Request17)
+                Instance23.Shape = Enum.PartType.Ball
+                Instance23.Size = Vector3.new(0.8, 0.8, 0.8)
+                Instance23.Color = Element49
+                Instance23.Material = Enum.Material.Neon
+                Part2(Instance23)
+                local Offset27 = Instance.new("Weld", Instance23)
+                Offset27.Part0 = partRef
+                Offset27.Part1 = Instance23
+                Offset27.C0 = k == 1 and CFrame.new(Request19 * Element50, Request20, 0) or CFrame.new(0,-Offset26 + 0.2, 0)
+                local Instance24 = Instance.new("Part", Request17)
+                Instance24.Size = Vector3.new(0.7, Offset26, 0.7)
+                Instance24.Color = Element49
+                Instance24.Material = Enum.Material.Slate
+                Part2(Instance24)
+                local Offset28 = Instance.new("Weld", Instance24)
+                Offset28.Part0 = Instance23
+                Offset28.Part1 = Instance24
+                Offset28.C0 = CFrame.new(0,-Offset26 / 2, 0) * CFrame.Angles(0, 0, math.rad(Request21 * (k / 2.5) * Element50))
+
+                if k == 3 then
+                    local wedgePart2 = Instance.new("WedgePart", Request17)
+                    wedgePart2.Size = Vector3.new(0.5, 4.5, 1.8)
+                    wedgePart2.Color = Element49
+                    wedgePart2.Material = Enum.Material.Neon
+                    Part2(wedgePart2)
+                    local Offset29 = Instance.new("Weld", wedgePart2)
+                    Offset29.Part0 = Instance24
+                    Offset29.Part1 = wedgePart2
+                    Offset29.C0 = CFrame.new(0,-1.8, 0.5) * CFrame.Angles(-4870.141258611998, 0, 0)
+                end
+
+                partRef = Instance24
+                table.insert(Element52, Offset27)
+            end
+        end
+
+        Callback(1.2, 1.2, 65)
+        Callback(0.8, 0.6, 50)
+        Callback(0.4, 0.1, 35)
+        Callback(0,-0.4, 20)
+        Callback(1.5, 1.8, 85)
+        return {motor = Element51, joints = Element52}
+    end
+
+    local Element53 = Callback(true)
+    local Element54 = Callback(false)
+
+    task.spawn(function()
+        while Request17 and Request17.Parent do
+            local StartTime6 = tick()
+            local Offset30 = math.sin(StartTime6 * 1.5) * 0.25
+            local Offset31 = math.sin(StartTime6 * 2) * 0.3
+            Element53.motor.C0 = CFrame.new(-2.5, 3.5 + Offset31, 2.5) * CFrame.Angles(math.rad(155 + Offset30 * 20),-859.4366926962348, math.rad(15))
+            Element54.motor.C0 = CFrame.new(2.5, 3.5 + Offset31, 2.5) * CFrame.Angles(math.rad(155 + Offset30 * 20), 859.4366926962348, math.rad(-15))
+
+            for k, joint in pairs(Element53.joints) do
+                joint.C1 = CFrame.Angles(0, 0, math.sin(StartTime6 + k) * 0.03)
+            end
+
+            for Offset32, joint1 in pairs(Element54.joints) do
+                joint1.C1 = CFrame.Angles(0, 0, math.sin(StartTime6 + Offset32) * 0.03)
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func18(Request22, Instance25, Request23)
+    local Element55 = Color3.fromRGB(255, 255, 255)
+    local Element56 = Color3.fromRGB(255, 240, 200)
+
+    local function Callback(Request24)
+        local Element57 = Request24 and-1 or 1
+        local Instance26 = Instance.new("Part", Request23)
+        Instance26.Size = Vector3.new(2, 2, 2)
+        Instance26.Color = Element55
+        Instance26.Material = Enum.Material.SmoothPlastic
+        Part2(Instance26)
+        local Element58 = Instance.new("Motor6D", Instance26)
+        Element58.Part0 = Instance25
+        Element58.Part1 = Instance26
+        local Element59 = {}
+
+        local function Callback(Request25, Request26, Request27)
+            local partRef2 = Instance26
+            for k, Offset33 in pairs({1, 1.5, 1.2}) do
+                local Instance27 = Instance.new("Part", Request23)
+                Instance27.Shape = Enum.PartType.Ball
+                Instance27.Size = Vector3.new(0.8, 0.8, 0.8)
+                Instance27.Color = Element55
+                Instance27.Material = Enum.Material.Neon
+                Part2(Instance27)
+                local Offset34 = Instance.new("Weld", Instance27)
+                Offset34.Part0 = partRef2
+                Offset34.Part1 = Instance27
+                Offset34.C0 = k == 1 and CFrame.new(Request25 * Element57, Request26, 0) or CFrame.new(0,-Offset33 + 0.2, 0)
+                local Instance28 = Instance.new("Part", Request23)
+                Instance28.Size = Vector3.new(0.7, Offset33, 0.7)
+                Instance28.Color = Element55
+                Instance28.Material = Enum.Material.SmoothPlastic
+                Part2(Instance28)
+                local Offset35 = Instance.new("Weld", Instance28)
+                Offset35.Part0 = Instance27
+                Offset35.Part1 = Instance28
+                Offset35.C0 = CFrame.new(0,-Offset33 / 2, 0) * CFrame.Angles(0, 0, math.rad(Request27 * (k / 2.5) * Element57))
+
+                if k == 3 then
+                    local wedgePart3 = Instance.new("WedgePart", Request23)
+                    wedgePart3.Size = Vector3.new(0.5, 4.5, 1.8)
+                    wedgePart3.Color = Element56
+                    wedgePart3.Material = Enum.Material.Neon
+                    Part2(wedgePart3)
+                    local Offset36 = Instance.new("Weld", wedgePart3)
+                    Offset36.Part0 = Instance28
+                    Offset36.Part1 = wedgePart3
+                    Offset36.C0 = CFrame.new(0,-1.8, 0.5) * CFrame.Angles(-4870.141258611998, 0, 0)
+                end
+
+                partRef2 = Instance28
+                table.insert(Element59, Offset34)
+            end
+        end
+
+        Callback(1.2, 1.2, 65)
+        Callback(0.8, 0.6, 50)
+        Callback(0.4, 0.1, 35)
+        Callback(0,-0.4, 20)
+        Callback(1.5, 1.8, 85)
+        return {motor = Element58, joints = Element59}
+    end
+
+    local Element60 = Callback(true)
+    local Element61 = Callback(false)
+
+    task.spawn(function()
+        while Request23 and Request23.Parent do
+            local StartTime7 = tick()
+            local Offset37 = math.sin(StartTime7 * 1.5) * 0.25
+            local Offset38 = math.sin(StartTime7 * 2) * 0.3
+            Element60.motor.C0 = CFrame.new(-2.5, 3.5 + Offset38, 2.5) * CFrame.Angles(math.rad(155 + Offset37 * 20),-859.4366926962348, math.rad(15))
+            Element61.motor.C0 = CFrame.new(2.5, 3.5 + Offset38, 2.5) * CFrame.Angles(math.rad(155 + Offset37 * 20), 859.4366926962348, math.rad(-15))
+
+            for k, joint2 in pairs(Element60.joints) do
+                joint2.C1 = CFrame.Angles(0, 0, math.sin(StartTime7 + k) * 0.03)
+            end
+
+            for Offset39, joint12 in pairs(Element61.joints) do
+                joint12.C1 = CFrame.Angles(0, 0, math.sin(StartTime7 + Offset39) * 0.03)
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func19(Request28, Instance29, Request29)
+    local Element62 = Color3.fromRGB(255, 255, 255)
+    local Element63 = {}
+
+    for i = 1, 6 do
+        local Instance30 = Instance.new("Part", Request29)
+        Instance30.Shape = Enum.PartType.Ball
+        Instance30.Size = Vector3.new(0.5, 0.5, 0.5)
+        Instance30.Material = Enum.Material.Neon
+        Instance30.Color = Element62
+        Instance30.Transparency = 0.3
+        Part2(Instance30)
+        local Offset40 = Instance.new("Motor6D", Instance30)
+        Offset40.Part0 = Instance29
+        Offset40.Part1 = Instance30
+        local Offset41 = i / 6 * 2 * math.pi
+        Offset40.C0 = CFrame.new(math.cos(Offset41) * 1.3, 4.5, math.sin(Offset41) * 1.3)
+        table.insert(Element63, {Instance30 = Instance30, Offset34 = Offset40, baseAngle = Offset41})
+    end
+
+    task.spawn(function()
+        while Request29 and Request29.Parent do
+            if Request28 == LocalPlayer and not State then
+                for Offset42, Offset43 in pairs(Element63) do
+                    Offset43.Instance30.Transparency = 1
+                end
+
+                repeat
+                    RunService.Heartbeat:Wait()
+                until State or not Request29.Parent
+
+                for Offset44, Offset45 in pairs(Element63) do
+                    Offset45.Instance30.Transparency = 0.3
+                end
+            end
+
+            local StartTime8 = tick()
+
+            for Offset46, Offset47 in pairs(Element63) do
+                local Offset48 = Offset47.baseAngle + StartTime8 * 0.3
+                Offset47.Offset34.C0 = CFrame.new(math.cos(Offset48) * 1.3, 4.5 + 0.1 * math.sin(StartTime8 * 1.5), math.sin(Offset48) * 1.3)
+                Offset47.Instance30.Transparency = 0.2 + 0.1 * math.sin(StartTime8 * 2 + Offset47.baseAngle)
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func20(Request30, Instance31, Request31)
+    local Element64 = Color3.fromRGB(20, 20, 20)
+    local Element65 = Color3.fromRGB(255, 255, 255)
+    local Element66 = Color3.fromRGB(255, 255, 255)
+    local Element67 = Color3.fromRGB(40, 40, 40)
+    local Element68 = Color3.fromRGB(30, 30, 30)
+    Color3.fromRGB(200, 200, 200)
+    local Instance32 = Instance.new("Part", Request31)
+    Instance32.Size = Vector3.new(1.2, 0.9, 3.2)
+    Instance32.Material = Enum.Material.Metal
+    Instance32.Color = Element64
+    Part2(Instance32)
+    local Instance33 = Instance.new("Part", Request31)
+    Instance33.Size = Vector3.new(0.45, 0.45, 8)
+    Instance33.Material = Enum.Material.Metal
+    Instance33.Color = Element64
+    Part2(Instance33)
+    local Instance34 = Instance.new("Part", Request31)
+    Instance34.Size = Vector3.new(0.8, 0.8, 1.4)
+    Instance34.Material = Enum.Material.Metal
+    Instance34.Color = Element64
+    Part2(Instance34)
+    local Instance35 = Instance.new("Part", Request31)
+    Instance35.Shape = Enum.PartType.Cylinder
+    Instance35.Size = Vector3.new(0.7, 0.7, 0.4)
+    Instance35.Material = Enum.Material.Neon
+    Instance35.Color = Element66
+    Part2(Instance35)
+    local Instance36 = Instance.new("Part", Request31)
+    Instance36.Size = Vector3.new(0.7, 1, 1.2)
+    Instance36.Material = Enum.Material.Metal
+    Instance36.Color = Element67
+    Part2(Instance36)
+    local Instance37 = Instance.new("Part", Request31)
+    Instance37.Size = Vector3.new(0.3, 0.2, 0.3)
+    Instance37.Material = Enum.Material.Metal
+    Instance37.Color = Element65
+    Part2(Instance37)
+    local Instance38 = Instance.new("Part", Request31)
+    Instance38.Size = Vector3.new(0.7, 1.2, 1.2)
+    Instance38.Material = Enum.Material.Metal
+    Instance38.Color = Element67
+    Part2(Instance38)
+    local Instance39 = Instance.new("Part", Request31)
+    Instance39.Size = Vector3.new(1, 0.8, 3)
+    Instance39.Material = Enum.Material.Metal
+    Instance39.Color = Element64
+    Part2(Instance39)
+    local Instance40 = Instance.new("Part", Request31)
+    Instance40.Size = Vector3.new(0.5, 0.3, 0.8)
+    Instance40.Material = Enum.Material.Metal
+    Instance40.Color = Element67
+    Part2(Instance40)
+    local Instance41 = Instance.new("Part", Request31)
+    Instance41.Size = Vector3.new(1.5, 1.2, 0.6)
+    Instance41.Material = Enum.Material.Metal
+    Instance41.Color = Element64
+    Part2(Instance41)
+    local part10 = Instance.new("Part", Request31)
+    part10.Size = Vector3.new(0.4, 0.8, 0.5)
+    part10.Material = Enum.Material.Metal
+    part10.Color = Element67
+    Part2(part10)
+    local part11 = Instance.new("Part", Request31)
+    part11.Size = Vector3.new(0.4, 0.8, 0.5)
+    part11.Material = Enum.Material.Metal
+    part11.Color = Element67
+    Part2(part11)
+    local part12 = Instance.new("Part", Request31)
+    part12.Size = Vector3.new(1.6, 1.3, 0.3)
+    part12.Material = Enum.Material.Rubber
+    part12.Color = Element68
+    Part2(part12)
+    local Motor6D = Instance.new("Motor6D")
+    Motor6D.Part0 = Instance31
+    Motor6D.Part1 = Instance32
+    Motor6D.C0 = CFrame.new(2.5, 1.5, 1) * CFrame.Angles(0, 10313.240312354817, 0)
+    Motor6D.Parent = Instance32
+    local Element69 = Instance.new("Weld", Instance33)
+    Element69.Part0 = Instance32
+    Element69.Part1 = Instance33
+    Element69.C0 = CFrame.new(0, 0.1, Instance32.Size.Z / 2 + Instance33.Size.Z / 2)
+    local Element70 = Instance.new("Weld", Instance34)
+    Element70.Part0 = Instance32
+    Element70.Part1 = Instance34
+    Element70.C0 = CFrame.new(0, 0.6,-0.9)
+    local Element71 = Instance.new("Weld", Instance35)
+    Element71.Part0 = Instance34
+    Element71.Part1 = Instance35
+    Element71.C0 = CFrame.new(0, 0, 0.7)
+    local Element72 = Instance.new("Weld", Instance36)
+    Element72.Part0 = Instance32
+    Element72.Part1 = Instance36
+    Element72.C0 = CFrame.new(0.5,-0.4,-1.2)
+    local Element73 = Instance.new("Weld", Instance37)
+    Element73.Part0 = Instance36
+    Element73.Part1 = Instance37
+    Element73.C0 = CFrame.new(0,-0.6, 0.2)
+    local Element74 = Instance.new("Weld", Instance38)
+    Element74.Part0 = Instance32
+    Element74.Part1 = Instance38
+    Element74.C0 = CFrame.new(-0.5,-0.6,-0.4)
+    local Element75 = Instance.new("Weld", Instance39)
+    Element75.Part0 = Instance32
+    Element75.Part1 = Instance39
+    Element75.C0 = CFrame.new(0, 0.1,-Instance32.Size.Z / 2 -Instance39.Size.Z / 2)
+    local Element76 = Instance.new("Weld", Instance40)
+    Element76.Part0 = Instance39
+    Element76.Part1 = Instance40
+    Element76.C0 = CFrame.new(0, 0.6,-1.5)
+    local Element77 = Instance.new("Weld", Instance41)
+    Element77.Part0 = Instance39
+    Element77.Part1 = Instance41
+    Element77.C0 = CFrame.new(0,-0.5,-Instance39.Size.Z / 2 -Instance41.Size.Z / 2)
+    local Element78 = Instance.new("Weld", part10)
+    Element78.Part0 = Instance41
+    Element78.Part1 = part10
+    Element78.C0 = CFrame.new(-0.8, 0.3, 0)
+    local weld10 = Instance.new("Weld", part11)
+    weld10.Part0 = Instance41
+    weld10.Part1 = part11
+    weld10.C0 = CFrame.new(0.8, 0.3, 0)
+    local weld11 = Instance.new("Weld", part12)
+    weld11.Part0 = Instance41
+    weld11.Part1 = part12
+    weld11.C0 = CFrame.new(0, 0,-Instance41.Size.Z / 2 -part12.Size.Z / 2)
+
+    task.spawn(function()
+        while Request31 and Request31.Parent do
+            if Request30 == LocalPlayer and not State then
+                for Instance42, Instance43 in pairs(Request31:GetChildren()) do
+                    if Instance43:IsA("BasePart") then
+                        Instance43.Transparency = 1
+                    end
+                end
+
+                repeat
+                    RunService.Heartbeat:Wait()
+                until State or not Request31.Parent
+
+                for Instance44, Instance45 in pairs(Request31:GetChildren()) do
+                    if Instance45:IsA("BasePart") then
+                        Instance45.Transparency = 0
+                    end
+                end
+            end
+
+            local Element64 = tick()
+            local Element65 = math.sin(Element64 * 2) * 0.1
+            local Element66 = math.sin(Element64 * 0.8) * 0.1
+            Motor6D.C0 = CFrame.new(2.5 + Element66, 1.5 + Element65, 1) * CFrame.Angles(0, 10313.240312354817, 0)
+            Instance35.Transparency = 0.3 + 0.2 * math.sin(Element64 * 3)
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+function func21(Request32, Instance46, Request33)
+    local Instance47 = Instance.new("Part", Request33)
+    Instance47.Shape = Enum.PartType.Ball
+    Instance47.Size = Vector3.new(1.8, 1.8, 1.8)
+    Instance47.Material = Enum.Material.SmoothPlastic
+    Instance47.Color = Color3.new(1, 1, 1)
+    Instance47.Transparency = 0.1
+    Part2(Instance47)
+    local Instance48 = Instance.new("Part", Request33)
+    Instance48.Shape = Enum.PartType.Ball
+    Instance48.Size = Vector3.new(1.2, 1.2, 0.4)
+    Instance48.Material = Enum.Material.Neon
+    Instance48.Color = Color3.fromRGB(0, 191, 255)
+    Instance48.Transparency = 0.1
+    Part2(Instance48)
+    local Instance49 = Instance.new("Part", Request33)
+    Instance49.Shape = Enum.PartType.Ball
+    Instance49.Size = Vector3.new(0.6, 0.6, 0.3)
+    Instance49.Material = Enum.Material.Neon
+    Instance49.Color = Color3.new(0, 0, 0)
+    Instance49.Transparency = 0.1
+    Part2(Instance49)
+    local Instance50 = Instance.new("Part", Request33)
+    Instance50.Shape = Enum.PartType.Ball
+    Instance50.Size = Vector3.new(0.2, 0.2, 0.1)
+    Instance50.Material = Enum.Material.Neon
+    Instance50.Color = Color3.new(1, 1, 1)
+    Instance50.Transparency = 0.2
+    Part2(Instance50)
+    local Element79 = Instance.new("Motor6D", Instance47)
+    Element79.Part0 = Instance46
+    Element79.Part1 = Instance47
+    Element79.C0 = CFrame.new(0, 5.5, 0) * CFrame.Angles(0, 10313.240312354817, 0)
+    local Element80 = Instance.new("Weld", Instance48)
+    Element80.Part0 = Instance47
+    Element80.Part1 = Instance48
+    Element80.C0 = CFrame.new(0, 0, 0.6)
+    local Element81 = Instance.new("Weld", Instance49)
+    Element81.Part0 = Instance48
+    Element81.Part1 = Instance49
+    Element81.C0 = CFrame.new(0, 0, 0.25)
+    local Element82 = Instance.new("Weld", Instance50)
+    Element82.Part0 = Instance49
+    Element82.Part1 = Instance50
+    Element82.C0 = CFrame.new(0.15, 0.15, 0.1)
+
+    task.spawn(function()
+        while Request33 and Request33.Parent do
+            if Request32 == LocalPlayer and not State then
+                Instance47.Transparency = 1
+                Instance48.Transparency = 1
+                Instance49.Transparency = 1
+                Instance50.Transparency = 1
+
+                repeat
+                    RunService.Heartbeat:Wait()
+                until State or not Request33.Parent
+
+                Instance47.Transparency = 0.1
+                Instance48.Transparency = 0.1
+                Instance49.Transparency = 0.1
+                Instance50.Transparency = 0.2
+            end
+
+            local StartTime9 = tick()
+            Element79.C0 = CFrame.new(0, 5.5 + math.sin(StartTime9 * 2) * 0.2, 0) * CFrame.Angles(0, 10313.240312354817, 0)
+            Instance48.Transparency = 0.1 + 0.1 * math.sin(StartTime9 * 3)
+            Instance49.Transparency = 0.1 + 0.1 * math.sin(StartTime9 * 4)
+            Instance50.Transparency = 0.2 + 0.1 * math.sin(StartTime9 * 5)
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+local function func22(player)
+    local function Callback(character)
+        if not character then
+            return
+        end
+
+        local RootPart = character:WaitForChild("HumanoidRootPart", 10)
+
+        if character:FindFirstChild("MickeyAura") then
+            character.MickeyAura:Destroy()
+        end
+
+        local Instance51 = Wrapper[player.Name] or Wrapper[player.DisplayName]
+
+        if not Instance51 or not Instance51.Style then
+            return
+        end
+
+        local model = Instance.new("Model", character)
+        model.Name = "SyntxAura"
+
+        if Instance51.Style == "DIVINE_RING"
+        func12(player, RootPart, model)
+    elseif Instance51.Style == "HYDRA_STRIKE"
+        func13(player, RootPart, model)
+    elseif Instance51.Style == "DEMON_HANDS"
+        func17(player, RootPart, model)
+    elseif Instance51.Style == "HEART_AURA"
+        func16(player, RootPart, model)
+    elseif Instance51.Style == "LETTER_A"
+        func14(player, RootPart, model)
+    elseif Instance51.Style == "LETTER_N"
+        func15(player, RootPart, model)
+    elseif Instance51.Style == "NORMAL_HALO"
+        func19(player, RootPart, model)
+    elseif Instance51.Style == "ANGEL_WINGS"
+        func18(player, RootPart, model)
+    elseif Instance51.Style == "BIG_SNIPER"
+        func20(player, RootPart, model)
+    elseif Instance51.Style == "ILLUMINATI"
+        func21(player, RootPart, model)
+    end
+end
+
+player.CharacterAdded:Connect(Callback)
+
+if player.Character then
+    Callback(player.Character)
+end
+
+end
+
+for Offset49, player2 in pairs(Players:GetPlayers()) do
+    func22(player2)
+end
+
+Players.PlayerAdded:Connect(func22)
+
+if not Instance2() then
+    Executor(nil, "— Mickey Chat: Secure Edition with Database Secret —", nil, true)
+end
